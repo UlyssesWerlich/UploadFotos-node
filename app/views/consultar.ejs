@@ -10,7 +10,7 @@
 <% 
         if(images){ images.forEach(function(image) { %>
 %>
-        <img src='<%= image.path %>' alt='<%= image.name %>'><br/>
+        <img src='<%= image.path %>' alt='<%= image.name %>'><p><a href="/remover/<%= image.name %>">Remover imagem</a></p><br/>
 <%
         })}
 %>

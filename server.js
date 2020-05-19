@@ -40,6 +40,19 @@ app.get('/consultar', (req, res) =>{
     });
 })
 
+app.get('/remover/:image', (req, res) =>{
+    var image = req.params.image;
+
+    fs.unlink("./app/public/images/" + image, function (err){
+        if (!err){
+            res.redirect("/consultar");
+        } else {
+            console.log(err.message);
+            res.render("consultar.ejs", {message: "Falha ao excluir imagem. Favor tentar novamente", images: false})
+        }  
+    })
+})
+
 app.listen(3000);
 
 
