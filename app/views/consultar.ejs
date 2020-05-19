@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> Nova imagem </title>
+    </head>
+    </body>
+        <h1>
+            Imagens salvas
+        </h1>
+<% 
+        if(images){ images.forEach(function(image) { %>
+%>
+        <img src='<%= image.path %>' alt='<%= image.name %>'><br/>
+<%
+        })}
+%>
+        <p><a href="/">Retornar</a></p>
+        <br/>
+        <% if(message){ %> <p><%= message %></p><% } %>
+    </body>
+</html>
