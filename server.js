@@ -20,9 +20,12 @@ app.post('/', multer.single('image'), (req, res, next) => {
         .then(newPath => {
             res.render('index.ejs', {message: "Upload e compressão realizados com sucesso! O novo caminho é:" +newPath});
          })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err)
+            res.render('index.ejs', {message: "Erro ao fazer a compressão da imagem."});
+        });
     } else {
-        res.render('index.ejs', {message: 'Houve erro no upload!'});
+        res.render('index.ejs', {message: 'Erro ao carregar imagem.'});
     }
 });
 
